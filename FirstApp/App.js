@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity } from 'react-native';
 
 export default function App() {
-  const [people, setPeople] = useState([
-    {name: 'shaun', id: 1},
-    {name: 'joe', id: 2},
-    {name: 'bill', id: 3},
-    {name: 'fen', id: 4},
-    {name: 'sam', id: 5},
-  ])
+  const data = [{name: 'shaun', id: 1},
+  {name: 'joe', id: 2},
+  {name: 'bill', id: 3},
+  {name: 'fen', id: 4},
+  {name: 'sam', id: 5}]
+  const [people, setPeople] = useState(data)
   const pressHandler = (id) =>{
-    console.log(id)
+    console.log(people)
     setPeople((prevPeople) =>{
       return prevPeople.filter(person => person.id !== id)
     })
+  }
+  const resetState = () =>{
+      return setPeople(data)
   }
   return (
     <View style={styles.container}>
@@ -28,6 +30,7 @@ export default function App() {
           </TouchableOpacity>
         )}
         />
+        <Button title='Reset Blocks' onPress={()=> resetState()}/>
 
     </View>
   );
