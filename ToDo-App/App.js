@@ -21,6 +21,7 @@ export default function App() {
   }
   //Submit Handler -- adds task
   const submitHandler = (text) =>{
+    //only add if text is > 3 char
     if(text.length > 3){
       setTodos((prevTodos)=>{
         return [
@@ -58,10 +59,16 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  container:{
+    flex: 1
+  },
   content:{
     padding: 40,
+    flex: 1,
   },
   list:{
+    flex: 1,
     marginTop: 20,
+
   }
 });
